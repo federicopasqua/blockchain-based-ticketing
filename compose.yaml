@@ -1,0 +1,21 @@
+services:
+  blockchain:
+    build: ./contracts
+    ports:
+      - "3001:8545"
+  app-backend:
+    build: ./app-backend
+    ports:
+      - "3002:3000"
+  msp-backend-trenitalia:
+    build: ./msp-backend
+    ports:
+      - "4001:80"
+    environment:
+      - PRIVATE_KEY=0xdbda1821b80551c9d65939329250298aa3472ba22feea921c0cf5d620ea67b97
+  msp-backend-italo:
+    build: ./msp-backend
+    ports:
+      - "4002:80"
+    environment:
+      - PRIVATE_KEY=0x2a871d0798f97d79848a013d4936a73bf4cc922c825d33c1cf7073dff6d409c6
